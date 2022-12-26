@@ -1,35 +1,41 @@
-#include<iostream>
-#include<math.h>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
 int main()
 {
-	int a, b, c, d = 0;
-
-	float x1 = 0.0f;
-	float x2 = 0.0f;
-
-
-	cout<<"이차방정식 ax^2+bx+c=0"<< endl;
-
+	int a = 0;			
+	int b = 0;
+	int c = 0;
+	double x1, x2;		
+	int number;			
 	cout << "a를 입력하세요" << endl;
 	cin >> a;
 	cout << "b를 입력하세요" << endl;
 	cin >> b;
 	cout << "c를 입력하세요" << endl;
 	cin >> c;
-	
-	x1 = (- b + (float)sqrt(b * b - 4 * a * c)) / 2 * a; //근의 방정식
 
-	x2 = (- b - (float)sqrt(b * b - 4 * a * c)) / 2 * a; // 근의 방정식
+	//판별식
+	number = b * b - (4 * a * c);
+	cout << number << endl;
 
+	if (number == 0)	//근 1개
+	{
+		x1 = (-b + (sqrt(b * b - 4 * a * c))) / (2 * a);
+		cout << "근이 1개 이며 " << x1 << " 입니다." << endl;
+	}
+	else if (number > 0) //근 2개
+	{
+		x1 = (-b + (sqrt(b * b - 4 * a * c))) / (2 * a);
+		x2 = (-b - (sqrt(b * b - 4 * a * c))) / (2 * a);
+		cout << "근이 2개 이며 " << x1 << ", " << x2 << " 입니다." << endl;
+	}
+	else if (number < 0) //근 0개
+	{
+		cout << "근이 0 개 입니다." << endl;
+	}
 
-	cout << x1 << endl;
-	cout << x2 << endl;
-
-
-
-
-    return 0;
-
+	return 0;
 }
